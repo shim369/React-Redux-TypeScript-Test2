@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "../redux/usersSlice";
+import { fetchUsers, deleteUser } from "../redux/usersSlice";
 import { RootState } from "../redux/store";
 import { AppDispatch } from "../redux/store";
+import { useNavigate } from "react-router-dom";
 
-const UserList: React.FC = () => {
+const UserList = () => {
   const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
   const { users, loading, error } = useSelector(
     (state: RootState) => state.users
   );
@@ -13,6 +15,19 @@ const UserList: React.FC = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+
+  const handleDelete = async (userId: number) => {
+    try {
+      await dispatch(deleteUser(userId)).unwrap();
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      alert("Failed to delete user");
+    }
+  };
+
+  const handleEdit = (id: number) => {
+    navigate(`/profile/${id}`);
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -24,6 +39,8 @@ const UserList: React.FC = () => {
           <th>ID</th>
           <th>Username</th>
           <th>Email</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -32,6 +49,8 @@ const UserList: React.FC = () => {
             <td>{user.id}</td>
             <td>{user.name}</td>
             <td>{user.email}</td>
+            <td><button className="btn" onClick={() => handleEdit(user.id)}>Edit</button></td>
+            <td><button className="btn" onClick={() => handleDelete(user.id)}>Delete</button></td>
           </tr>
         ))}
       </tbody>

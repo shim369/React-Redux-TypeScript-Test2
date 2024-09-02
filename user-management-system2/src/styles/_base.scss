@@ -1,9 +1,9 @@
 :root {
-  --background-color: #00215d;
+  --background-color: #1c1d1f;
   --font-color: #fff;
-  --primary-color: #00468b;
-  --secondary-color: #0071bc;
-  --accent-color: #ff5050;
+  --primary-color: #353638;
+  --secondary-color: #55585a;
+  --accent-color: #ffe550;
 }
 
 * {
@@ -47,25 +47,10 @@ h2 {
 }
 
 input {
-  margin-left: 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 4px;
   border: none;
-}
-
-button {
-  padding: 1rem;
-  background: var(--accent-color);
-  color: var(--font-color);
-  border-radius: 4px;
-  border: none;
-  transition: all .4s;
-}
-
-button:hover {
-  opacity: .8;
-  cursor: pointer;
 }
 
 select {

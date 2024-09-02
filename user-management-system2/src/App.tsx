@@ -3,6 +3,7 @@ import MyRouter from "./router";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Header from "./components/Header";
+import './styles/main.scss';
 
 const App: React.FC = () => {
   return (

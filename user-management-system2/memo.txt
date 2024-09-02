@@ -1,0 +1,1 @@
+It may be better to upgrade the version of "@testing-library/react": "^15.0.6".

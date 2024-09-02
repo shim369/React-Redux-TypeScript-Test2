@@ -11,14 +11,9 @@
     "sequelize": "^6.37.3",
     "typescript": "^5.5.4"
   },
-  "devDependencies": {
-    "@types/body-parser": "^1.19.5",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "ts-node": "^10.9.2"
-  },
+  "devDependencies": {},
   "scripts": {
-    "start": "ts-node src/server.ts",
+  "start": "ts-node src/server.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
